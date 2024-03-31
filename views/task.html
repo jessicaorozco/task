@@ -1,0 +1,61 @@
+<div class="d-flex flex-column w-100 h-100">
+  <div class="headerContent">
+    <button class="addButton" (click)="createTask()" ></button>
+    <button class="deleteButton" (click)="deleteTask()" [disabled]="selected.length === 0"
+           ></button>
+  </div>
+  <div class="w-100 h-100 p-5">
+    <h4 class="headerTitle">Task</h4>
+    <hr class="hrTitle">
+    <div class="h-100" >
+      <table #dt [value]="datas" selectionMode="multiple" [(selection)]="selected"
+               styleClass="p-datatable-striped"  dataKey="id" responsiveLayout="scroll" [paginator]="true"
+               [rows]=env.paginatorTools [globalFilterFields]="['id','title', 'description', 'dateLimit']"
+               currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+               [showCurrentPageReport]="true">
+        <ng-template pTemplate="caption">
+          <div class="d-flex justify-content-end pe-5">
+            <span class="p-input-icon-right p-ml-auto">
+                 <i class="pi pi-search"></i>
+                 <input pInputText type="text" (input)="dt.filterGlobal(getEventValue($event), 'contains')" placeholder="Search keyword" />
+            </span>
+          </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+          <tr [pSelectableRow]="datas">
+            <th ></th>
+            <th >Id <p-sortIcon field="callReason"></p-sortIcon></th>
+            <th >Nombre de la Tarea</th>
+            <th >Descripciòn de la Tarea </th>
+            <th>Fecha límite</th>
+            <th>Prioridad</th>
+            
+    
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-data let-rowIndex="rowIndex">
+          <tr [pSelectableRow]="data" [pSelectableRowIndex]="rowIndex">
+            <td class="tdEditButton" >
+              <button class="editButton" (click)="updateTask(data.id)"></button>
+            </td>
+            <td>{{data.id}}</td>
+            <td>{{data.title}}</td>
+            <td>{{data.description}}</td>
+            <td>{{data.dateLimit}}</td>
+            <td>{{data.priority}}</td>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+          <tr>
+            <td colspan="7">No task found</td>
+          </tr>
+        </ng-template>
+      </table>
+    </div>
+    <div class="h-100 d-flex justify-content-center align-items-center" >
+      <div>
+        <h6>There are no registered task</h6>
+      </div>
+    </div>
+  </div>
+</div>
