@@ -11,7 +11,7 @@ app.config(function ($routeProvider, $locationProvider) {
       templateUrl: "views/task.html",
       controller: "TaskControler",
     })
-    // .otherwise({ redirectTo: "/task/chart" });
+    .otherwise({ redirectTo: "/chart" });
 
     $locationProvider.hashPrefix('').html5Mode(true);
 
