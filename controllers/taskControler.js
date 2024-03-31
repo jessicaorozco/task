@@ -6,7 +6,7 @@ app.controller('TaskControler', function($scope, $http) {
 
   // Crear una nueva tarea
   $scope.createTask = function() {
-    $http.post('/tasks/task', $scope.newTask).then(function(response) {
+    $http.post('/tasks/task/task', $scope.newTask).then(function(response) {
       $scope.tasks.push(response.data);
       $scope.newTask = {};
     });
@@ -20,7 +20,7 @@ app.controller('TaskControler', function($scope, $http) {
 
   // Actualizar una tarea
   $scope.updateTask = function() {
-    $http.put('/tasks/tasks' + $scope.task.id, $scope.task).then(function(response) {
+    $http.put('/tasks/task/task/' + $scope.task.id, $scope.task).then(function(response) {
       $scope.editTaskModal = false;
       console.log('data actualizada', response)
     });
@@ -28,7 +28,7 @@ app.controller('TaskControler', function($scope, $http) {
 
   // Eliminar una tarea
   $scope.deleteTask = function(task) {
-    $http.delete('/tasks/tasks/' + task.id).then(function(response) {
+    $http.delete('/tasks/task/task/' + task.id).then(function(response) {
       var index = $scope.tasks.indexOf(task);
       $scope.tasks.splice(index, 1);
       console.log('data eliminada', response)
