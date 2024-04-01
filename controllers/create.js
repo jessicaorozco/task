@@ -14,12 +14,18 @@ app.controller("AddControler", function ($scope, $http) {
       });
   };
 
+      $scope.priorities = ['Baja', 'Media', 'Alta'];
+    $scope.selectedPriority = $scope.priorities[0];
+
   $scope.save = function () {
     if ($scope.id > 0) {
       $scope.updateTask();
     } else {
       $scope.createTask();
     }
+  };
+  $scope.goBack = function() {
+    $window.history.back();
   };
 });
 
@@ -28,8 +34,6 @@ app.controller("AddControler", function ($scope, $http) {
 //     const today = new Date().toISOString().split('T')[0];
 //     document.getElementById('start').min = today;
 
-//     $scope.priorities = ['Baja', 'Media', 'Alta'];
-//     $scope.selectedPriority = $scope.priorities[0];
 
 //     self.saveTask = function(task) {
 //       var httpPromise;
