@@ -1,28 +1,32 @@
 <div class="d-flex flex-column w-100 h-100">
-  <div class="headerContent">
-    <button  (click)="createTask()" ><i class="bi bi-plus-circle"></i></button>
-    <button  (click)="deleteTask()" [disabled]="selected.length === 0"
-           ><i class="bi bi-trash"></i></button>
-  </div>
-  <div class="w-100 h-100 p-5">
-    <h4 class="headerTitle">Task</h4>
+    <div class="w-100 h-100 p-5">
+      <div class="d-flex justify-content-end pe-5">
+        <button class="bi bi-plus-circle" ng-click="createTask()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
+        </svg></button>
+        <button ng-click="deleteTask()" ng-disabled="!selected.length"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+          <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+          <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+        </svg></button>
+      </div>
+    <h4 class="header">Tasks</h4>
     <hr class="hrTitle">
-    <div class="h-100" >
-      <table class="table table-striped" #dt [value]="datas" selectionMode="multiple" [(ngModel)]="selected">
+    <div class="h-100">
+      <table class="table table-striped">
         <caption>
           <div class="d-flex justify-content-end pe-5">
             <span class="input-group-append">
               <i class="pi pi-search"></i>
-              <input type="text" class="form-control" [(ngModel)]="searchText" (keyup)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Search keyword">
+              <input type="text" class="form-control" ng-model="searchText" ng-keyup="filterTasks($event.target.value)" placeholder="Buscar la palabra clave">
             </span>
           </div>
         </caption>
         <thead>
           <tr>
             <th scope="col">
-              <input type="checkbox" [(ngModel)]="selectAll" (change)="dt.selectAll($event)">
+              <input type="checkbox" ng-model="selectAll" ng-change="selectAllTasks()">
             </th>
-            <th scope="col">Id <p-sortIcon field="callReason"></p-sortIcon></th>
+            <th scope="col">Id</th>
             <th scope="col">Nombre de la Tarea</th>
             <th scope="col">Descripción de la Tarea</th>
             <th scope="col">Fecha Límite</th>
@@ -30,29 +34,27 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let data of datas; let rowIndex = index" [ngClass]="{'table-active': selected.indexOf(data) > -1}">
+          <tr ng-repeat="task in tasks | filter:searchText:strict">
             <td>
-              <button type="button" class="btn btn-sm btn-light" (click)="updateTask(data.id)">
+              <button type="button" class="btn btn-sm btn-light" ng-click="editTask(task.id)">
                 <i class="pi pi-pencil"></i>
               </button>
             </td>
-            <td>{{ data.id }}</td>
-            <td>{{ data.title }}</td>
-            <td>{{ data.description }}</td>
-            <td>{{ data.dateLimit }}</td>
-            <td>{{ data.priority }}</td>
+            <td>{{ task.id }}</td>
+            <td>{{ task.title }}</td>
+            <td>{{ task.description }}</td>
+            <td>{{ task.dateLimit }}</td>
+            <td>{{ task.priority }}</td>
           </tr>
-          <tr *ngIf="dt.isEmpty()">
-            <td colspan="7">No tasks found</td>
+          <tr ng-show="tasks.length === 0">
+            <td colspan="7">No se encuentran tareas</td>
           </tr>
         </tbody>
       </table>
-         
-    
-    </div>
-    <div class="h-100 d-flex justify-content-center align-items-center" >
-      <div>
-        <h6>There are no registered task</h6>
+      <div class="h-100 d-flex justify-content-center align-items-center" ng-show="tasks.length === 0">
+        <div>
+          <h6>No hay tareas registradas</h6>
+        </div>
       </div>
     </div>
   </div>

@@ -1,60 +1,80 @@
-var app = angular.module('app');
+// var app = angular.module('app');
 
 app.controller('TaskControler', function($scope, $http) {
-  $scope.tasks = [];
+  $scope.tasks = [
+    {
+      id: 1,
+      title: "Tarea 1",
+      description: "Descripción de la tarea 1",
+      dateLimit: "05/04/2024",
+      priority: 1
+    },
+    {
+      id: 2,
+      title: "Tarea 2",
+      description: "Descripción de la tarea 2",
+      dateLimit: "06/04/2024",
+      priority: 1
+    },
+    {
+      id: 3,
+      title: "Tarea 3",
+      dateLimit: "07/04/2024",
+      priority: 1
+    }
+  ];
   $scope.selected= [];
 
-  // Crear una nueva tarea
+
   $scope.createTask = function() {
-    $http.post('/tasks/task/task', $scope.newTask).then(function(response) {
+    $http.post('/tasks/task', $scope.newTask).then(function(response) {
       $scope.tasks.push(response.data);
       $scope.newTask = {};
     });
   };
 
-  // Editar una tarea
+  
   $scope.editTask = function(task) {
     $scope.task = task;
     $scope.editTaskModal = true;
   };
 
-  // Actualizar una tarea
+  
   $scope.updateTask = function() {
-    $http.put('/tasks/task/task/' + $scope.task.id, $scope.task).then(function(response) {
+    $http.put('/tasks/task/' + $scope.task.id, $scope.task).then(function(response) {
       $scope.editTaskModal = false;
       console.log('data actualizada', response)
     });
   };
 
-  // Eliminar una tarea
+  
   $scope.deleteTask = function(task) {
-    $http.delete('/tasks/task/task/' + task.id).then(function(response) {
+    $http.delete('/tasks/task/' + task.id).then(function(response) {
       var index = $scope.tasks.indexOf(task);
       $scope.tasks.splice(index, 1);
       console.log('data eliminada', response)
     });
   };
 
-  // Cerrar modal de editar tarea
-  $scope.closeEditTaskModal = function() {
+    $scope.closeEditTaskModal = function() {
     $scope.editTaskModal = false;
   };
 
-  $scope.refreshData = function() {
-    DataService.getData().then(function(data) {
-      // Update your data model in $scope with the fetched data
-      $scope.data = data;
-    });
+  $scope.getTasks = function() {
+    return $http.get('/task/task') 
+      .then(function(response) {
+        return response.data;
+      });
   };
 
-  // Get event value
-  $scope.getEventValue = function($event) {
+    $scope.getEventValue = function($event) {
     return $event.target.value;
   };
 
-  // Call refresh data on initialization (optional)
-  $scope.refreshData();
+  
+  // $scope.refreshData();
 
 
   
 });
+
