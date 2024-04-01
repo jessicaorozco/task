@@ -11,6 +11,15 @@ app.config(function ($routeProvider, $locationProvider) {
       templateUrl: "views/task.html",
       controller: "TaskControler",
     })
+    .when("/alert", {
+      templateUrl: "views/alert.html",
+      controller: "AlertControler",
+    })
+    .when("/save/", {
+      templateUrl: "views/add.html",
+      controller: "AddControler",
+    })
+    
     .otherwise({ redirectTo: "/chart" });
 
     $locationProvider.hashPrefix('').html5Mode(true);

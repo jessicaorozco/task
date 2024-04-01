@@ -1,0 +1,63 @@
+<div class="w-100 h-100 p-5">
+    <div class="flex justify-content-center" >
+      <button class="pi pi-arrow-left" (click)="returnToList()"></button>
+      <button class="pi pi-save" (click)="saveRegistry()"></button>
+    </div>
+    <div class="card flex justify-content-center">
+      <div class="container formCRUD" >
+        <h4 class="headerTitle">Tareas </h4>
+        <hr class="hrTitle">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <div  class="card-body">
+                    <form class="card-body" [formGroup]="form" (ngSubmit)="onSubmit()">
+                      <div class="form-group col-12">
+                        <label class="form-label">Id:</label>
+                        <div class="input-group">
+                          <input type="text" class="form-control shadow-none" formControlName="id" maxlength="50" readonly>
+                        </div>
+                      </div>
+                      <div class="form-group col-12">
+                        <label class="form-label">Descripción:</label>
+                        <div class="input-group">
+                          <input pInputText type="text" class="form-control" formControlName="name" maxlength="50" required>
+  
+                        </div>
+                      </div>
+                      <div class="form-group col-12">
+                        <label class="form-label">Fecha Limite:</label>
+                        <div class="input-group">
+                            <input type="date" id="start" name="trip-start" value="today" />                      
+   
+                        </div>
+                      </div>
+                      <div class="form-group col-12">
+                        <label class="form-label">Prioridad:</label>
+                        <div class="input-group">
+                            <select ng-model="selectedPriority" ng-options="priority for priority in priorities">
+                                <option value="">-- Seleccionar prioridad --</option>
+                                <option value="baja">Baja</option>
+                                <option value="media">Media</option>
+                                <option value="alta">Alta</option>
+                              </select>
+                            
+                              <p>Prioridad seleccionada: {{selectedPriority}}</p>
+   
+                        </div>
+                      </div>
+                      <div class="form-group col-12">
+                        <button class="btn btn-primary" name="Cancel" (click)="returnToList()">Cancel</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
