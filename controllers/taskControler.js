@@ -1,4 +1,4 @@
-app.controller('TaskControler', function($scope, $http, $location) {
+app.controller('TaskControler', function($scope, $http, $routeParams) {
   $scope.tasks = [
     {
       id: 1,
@@ -25,25 +25,32 @@ app.controller('TaskControler', function($scope, $http, $location) {
   $scope.selected= [];
   $scope.selectAll = false;
   
-  
-  $scope.editTask = function(id) {
-    $location.path('/task/save/'+ id); 
-  };
-
-  $scope.onTaskSelect = function(task) {
+    $scope.onTaskSelect = function(task) {
     let index = $scope.selected.indexOf(task);
     if (index !== -1) {
       $scope.selected.splice(index, 1);
     } else {
       $scope.selected.push(task);
     }
-
     console.log($scope.selected);
     console.log('Tarea seleccionada: ' + task.title);
   };
 
+  $scope.selectAllTasks = function() {
+    angular.forEach($scope.tasks, function(task) {
+      task.selected = $scope.selectAll;
+    });
+  };
+
   $scope.getTasks = function() {
     return $http.get('/task/task') 
+      .then(function(response) {
+        return response.data;
+      });
+  };
+
+  $scope.editTask = function(id) {
+    return $http.get('/task/save/'+ id) 
       .then(function(response) {
         return response.data;
       });
