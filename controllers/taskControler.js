@@ -1,4 +1,4 @@
-app.controller('TaskControler', function($scope, $http, $routeParams) {
+app.controller('TaskControler', function($scope, $http, $location) {
   $scope.tasks = [
     {
       id: 1,
@@ -50,10 +50,11 @@ app.controller('TaskControler', function($scope, $http, $routeParams) {
   };
 
   $scope.editTask = function(id) {
-    return $http.get('/task/save/'+ id) 
-      .then(function(response) {
-        return response.data;
-      });
+    $location.path('/save/'+ id);  
+  };
+
+  $scope.saveTask = function() {
+    $location.path('/save/');  
   };
 
     $scope.getEventValue = function($event) {
