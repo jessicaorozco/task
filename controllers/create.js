@@ -1,7 +1,7 @@
 app.controller(
   "AddControler",
   function ($scope, $http, $location, $routeParams) {
-    $scope.tasks = JSON.parse(localStorage.getItem("tasks"));
+    $scope.tasks = JSON.parse(localStorage.getItem("tasks")) || [];
     const id = $routeParams.id;
 
     if (id != undefined) {
@@ -16,8 +16,8 @@ app.controller(
       var tasks = [];
       const task = $scope.task;
       task.id = uuid.v4();
-      console.log(task.id);
       tasks.push(task);
+      console.log(task);
       $scope.tasks.push(task);
       localStorage.setItem("tasks", JSON.stringify($scope.tasks));
       console.log(localStorage.getItem("tasks"));
@@ -51,8 +51,8 @@ app.controller(
     };
 
     $scope.updateLocalStorage = function () {
-      const updatedHeroesJson = JSON.stringify($scope.heroes);
-      localStorage.setItem("heroes", updatedHeroesJson);
+      const updatedHeroesJson = JSON.stringify($scope.task);
+      localStorage.setItem("tasks", updatedHeroesJson);
     };
 
     $scope.priorities = ["Baja", "Media", "Alta"];
