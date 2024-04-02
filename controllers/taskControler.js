@@ -4,7 +4,6 @@ app.controller('TaskControler', function($scope, $http, $location) {
    }
   $scope.tasks = JSON.parse(localStorage.getItem("tasks")); 
   console.log($scope.tasks);
-  // $scope.getTasks();
   $scope.selected= [];
   $scope.selectAll = false;
   
@@ -24,25 +23,6 @@ app.controller('TaskControler', function($scope, $http, $location) {
       task.selected = $scope.selectAll;
     });
   };
-
-  // $scope.getTasks = function() {
-  //   return $http.get('/task/task')
-  //     .then(function(response) {
-  //       const item = JSON.parse(localStorage.getItem('tasks'));
-  //       if (item !== null ) {
-  //         return item;
-  //       } else {
-  //         return response.data;
-  //       }
-  //     });
-  // };
-
-  // $scope.getTasks = function() {
-  //   return $http.get('/task/task') 
-  //     .then(function(response) {
-  //       return response.data;
-  //     });
-  // };
 
   $scope.editTask = function(id) {
     $location.path('/save/'+ id);  

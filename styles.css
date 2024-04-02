@@ -5,3 +5,11 @@
   margin: 0 auto;
   border: 1px solid #ccc;
 }
+
+input{
+  text-transform: capitalize;
+}
+textarea{
+  text-transform: capitalize;
+}
+
