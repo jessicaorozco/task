@@ -1,7 +1,15 @@
 app.controller(
   "AddControler",
   function ($scope, $http, $location, $routeParams) {
-    $scope.tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    const storedTasks = localStorage.getItem("tasks");
+    console.log("Stored tasks data:", storedTasks);
+    try {
+      $scope.tasks = JSON.parse(storedTasks) || [];
+    } catch (error) {
+      console.error("Error parsing tasks:", error);
+      $scope.tasks = [];
+    }
+
     const id = $routeParams.id;
 
     if (id != undefined) {
@@ -47,13 +55,13 @@ app.controller(
       elemento.priority = datosActualizados.priority;
 
       console.log(elemento);
-      $scope.updateLocalStorage();
+      // $scope.updateLocalStorage();
     };
 
-    $scope.updateLocalStorage = function () {
-      const updatedHeroesJson = JSON.stringify($scope.task);
-      localStorage.setItem("tasks", updatedHeroesJson);
-    };
+    // $scope.updateLocalStorage = function () {
+    //   const updatedHeroesJson = JSON.stringify($scope.task);
+    //   localStorage.setItem("tasks", updatedHeroesJson);
+    // };
 
     $scope.priorities = ["Baja", "Media", "Alta"];
     $scope.selectedPriority = $scope.priorities[0];
