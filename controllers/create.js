@@ -1,7 +1,7 @@
 app.controller(
   "AddControler",
   function ($scope, $http, $location, $routeParams) {
-    $scope.tasks = JSON.parse(localStorage.getItem("tasks"));
+    $scope.tasks = JSON.parse(localStorage.getItem("tasks")) || [];
     const id = $routeParams.id;
 
     if (id != undefined) {
@@ -17,7 +17,7 @@ app.controller(
       const task = $scope.task;
       task.id = uuid.v4();
       tasks.push(task);
-      console.log(task.id);
+      console.log(task);
       $scope.tasks.push(task);
       localStorage.setItem("tasks", JSON.stringify($scope.tasks));
       console.log(localStorage.getItem("tasks"));
