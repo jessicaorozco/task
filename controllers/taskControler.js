@@ -1,6 +1,6 @@
 app.controller("TaskControler", function ($scope, $http, $location) {
-  $scope.tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-  console.log("Tasks array initialized:", $scope.tasks);
+  $scope.tasks = JSON.parse(localStorage.getItem("tasks"));
+  
 
   $scope.selected = [];
   $scope.selectAll = false;
