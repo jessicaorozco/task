@@ -4,35 +4,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task</title>
+    <title>Tareas</title>
     <link rel="stylessheet" href="styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/uuid/dist/umd/uuid.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
     <script src="angular-router.js"></script>
     <script src="controllers/app.js"></script>
     <script src="controllers/taskControler.js"></script>
     <script src="controllers/chart.js"></script>
-      
+    <script src="controllers/create.js"></script>
     <base href="/task/">
 </head>
 <body class="card">
   <header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="/task/">
+        <a class="navbar-brand" href="/task/chart">
           <img src="./img/bird_2.png" alt="AngularJS Logo" width="80" height="50">
            </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="card-list"></span>
+          <span class="card-list"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+</svg></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/task/">Inicio</a>
+              <a class="nav-link active" aria-current="page" href="/task/chart">Inicio</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/task/task/task">Task</a>
+              <a class="nav-link" href="/task/task">Tareas</a>
             </li>
           
           </ul>
@@ -42,7 +46,7 @@
   </header>
   <div ng-view></div>
   <div id="container"></div>
-
+  
 </body>
   
 </html>
