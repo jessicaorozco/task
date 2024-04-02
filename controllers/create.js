@@ -1,14 +1,24 @@
-app.controller("AddControler", function ($scope, $http) {
+app.controller("AddControler", function ($scope, $http, $location) {
+  $scope.tasks = localStorage.getItem('tasks')
   $scope.createTask = function () {
-    $http.post("/tasks/save", $scope.newTask).then(function (response) {
-      $scope.tasks.push(response.data);
-      $scope.newTask = {};
-    });
+    var tasks = [];
+    const task = $scope.task;
+    task.id = uuid.v4();
+    console.log(task.id);
+    tasks.push(task);  
+    $scope.tasks = tasks;   
+    localStorage.setItem('tasks', JSON.stringify($scope.tasks));
+    console.log(localStorage.getItem('tasks'));
+    $scope.resetForm();
+    alert('Registro creado');
+    // $scope.returnToList()
+
   };
+  
 
   $scope.updateTask = function () {
     $http
-      .put("/tasks/save/" + $scope.task.id, $scope.task)
+      .put("/task/save/" + $scope.task.id, $scope.form.value)
       .then(function (response) {
         console.log("data actualizada", response);
       });
@@ -24,32 +34,28 @@ app.controller("AddControler", function ($scope, $http) {
       $scope.createTask();
     }
   };
-  $scope.goBack = function() {
-    $window.history.back();
+  
+  $scope.returnToList = function () {
+    $location.path("/task");
   };
+
+  $scope.findById = function () {
+    for (const task of $scope.tasks) {
+      if (task.id === id) {
+        return task;
+      }
+    }
+    return null;
+  };
+
+  $scope.resetForm = function() {
+    resetObjectProperties($scope.task, ['id', 'title', 'description', 'dateLimit', 'priority']);
+  };
+  
+  function resetObjectProperties(obj, properties) {
+    properties.forEach(prop => obj[prop] = '');
+  }
+
+  
+
 });
-
-// app.controller('AddControler', function($http, $scope) {
-//     var self = this;
-//     const today = new Date().toISOString().split('T')[0];
-//     document.getElementById('start').min = today;
-
-
-//     self.saveTask = function(task) {
-//       var httpPromise;
-//       if (task.id) {
-//         httpPromise = $http.put('/task/save/' + task.id, task);
-//       } else {
-//         httpPromise = $http.post('/task/save/', task);
-//       }
-
-//       httpPromise.then(function(response) {
-
-//         $scope.$emit('taskSaved', response.data);
-//         self.closeForm();
-//       }, function(error) {
-
-//         console.error('Error saving task:', error);
-//       });
-//     };
-//   });

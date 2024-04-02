@@ -57,7 +57,7 @@
             <td>{{ task.id }}</td>
             <td>{{ task.title }}</td>
             <td>{{ task.description }}</td>
-            <td>{{ task.dateLimit }}</td>
+            <td>{{ task.dateLimit | date}}</td>
             <td>{{ task.priority }}</td>
           </tr>
           <tr ng-show="tasks.length === 0">

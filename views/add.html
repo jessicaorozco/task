@@ -1,4 +1,4 @@
-<div class="d-flex w-100 h-100">
+<div class="d-flex w-100 h-100" ng-controller="AddControler">
   <div class="w-100 h-100 p-5">
     <div class="card-body flex justify-content-center">
             <div class="row">
@@ -22,38 +22,39 @@
                       </div>
                     </div>
                   
-                  <div  class="card-body">
-                    <form class="form-group" [formGroup]="form" (ngSubmit)="onSubmit()">
+                  <div  class="card-body justify-content-center">
+                    <form class="form-group" [formGroup]="form" name="form" (ngSubmit)="onSubmit()" >
                       <div class="form-group col-12">
                         <label class="form-label">Id:</label>
                         <div class="input-group">
-                          <input type="text" class="form-control shadow-none" formControlName="id" maxlength="50" readonly>
+                          <input type="text" class="form-control shadow-none" ng-model="task.id" maxlength="50" readonly>
                         </div>
                       </div>
                       <div class="form-group col-12">
                         <label class="form-label">Descripción:</label>
                         <div class="input-group">
-                          <input pInputText type="text" class="form-control" formControlName="name" maxlength="50" required>
+                          <input pInputText type="text" class="form-control" ng-model="task.description" maxlength="50" required>
+                          <span style="color:red" ng-show="form.description.$error.required"></span>
   
                         </div>
                       </div>
                       <div class="form-group col-12">
                         <label class="form-label">Fecha Limite:</label>
                         <div class="input-group">
-                            <input type="date" id="start" name="trip-start" value="today" />                      
-   
+                            <input type="date" id="start" name="trip-start" min="myDate" class="form-control" dateFormat="d/m/Y h:i K" ng-model="task.dateLimit" required/>                      
+                            <span style="color:red" ng-show="form.dateLimit.$error.required"></span>
                         </div>
                       </div>
                       <div class="form-group col-12">
                         <label class="form-label">Prioridad:</label>
                         <div class="input-group">
-                            <select ng-model="selectedPriority" ng-options="priority for priority in priorities">
+                            <select  class="form-control" ng-model="task.priority" ng-options="priority for priority in priorities" required>
                                 <option value="">-- Seleccionar prioridad --</option>
                                 <option value="baja">Baja</option>
                                 <option value="media">Media</option>
                                 <option value="alta">Alta</option>
                               </select>
-              
+                              <span style="color:red" ng-show="form.priority.$error.required"></span>
                         </div>
                       </div>
                       <div class="form-group col-12">
