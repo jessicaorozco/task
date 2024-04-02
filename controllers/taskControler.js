@@ -1,6 +1,6 @@
 app.controller('TaskControler', function($scope, $http, $location) {
    if($scope.tasks != undefined) {
-
+console.log($scope.tasks);
    }
   $scope.tasks = JSON.parse(localStorage.getItem("tasks")); 
   console.log($scope.tasks);
