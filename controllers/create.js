@@ -1,12 +1,17 @@
-app.controller("AddControler", function ($scope, $http, $location) {
-  $scope.tasks = localStorage.getItem('tasks')
+app.controller("AddControler", function ($scope, $http, $location, $routeParams) {
+  $scope.tasks = JSON.parse(localStorage.getItem("tasks"));
+  const id = $routeParams.id;
+  if(id != undefined){
+    $scope.getById(id);
+  }
+  
   $scope.createTask = function () {
     var tasks = [];
     const task = $scope.task;
     task.id = uuid.v4();
     console.log(task.id);
     tasks.push(task);  
-    $scope.tasks = tasks;   
+    $scope.tasks.push(task);   
     localStorage.setItem('tasks', JSON.stringify($scope.tasks));
     console.log(localStorage.getItem('tasks'));
     $scope.resetForm();
@@ -14,7 +19,11 @@ app.controller("AddControler", function ($scope, $http, $location) {
     // $scope.returnToList()
 
   };
-  
+
+  $scope.getById = function (id) {
+     var taskFound = $scope.tasks.find(task => task.id === id);
+     console.log(taskFound);
+  } 
 
   $scope.updateTask = function () {
     $http

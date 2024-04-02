@@ -1,28 +1,10 @@
 app.controller('TaskControler', function($scope, $http, $location) {
-  $scope.tasks = [
-    {
-      id: 1,
-      title: "Crear Formulario",
-      description: "para angularJS",
-      dateLimit: "2024-04-02T22:00:00.000Z",
-      priority: "Baja"
-    },
-    {
-      id: 2,
-      title: "Crear Menu",
-      description: "Sidebar",
-      dateLimit: "2024-04-07T22:00:00.000Z",
-      priority: "Media"
-    },
-    {
-      id: 3,
-      title: "Crear Modal",
-      description: "Modal de componente Registro",
-      dateLimit: "2024-04-02T22:00:00.000Z",
-      priority: "Alta"
-    }
-  ];
+   if($scope.tasks != undefined) {
 
+   }
+  $scope.tasks = JSON.parse(localStorage.getItem("tasks")); 
+  console.log($scope.tasks);
+  // $scope.getTasks();
   $scope.selected= [];
   $scope.selectAll = false;
   
@@ -44,10 +26,21 @@ app.controller('TaskControler', function($scope, $http, $location) {
   };
 
   // $scope.getTasks = function() {
+  //   return $http.get('/task/task')
+  //     .then(function(response) {
+  //       const item = JSON.parse(localStorage.getItem('tasks'));
+  //       if (item !== null ) {
+  //         return item;
+  //       } else {
+  //         return response.data;
+  //       }
+  //     });
+  // };
+
+  // $scope.getTasks = function() {
   //   return $http.get('/task/task') 
   //     .then(function(response) {
-  //       const item = localStorage.getItem('tasks');
-  //       return item ? JSON.parse(item) : response.data;
+  //       return response.data;
   //     });
   // };
 
@@ -69,6 +62,7 @@ app.controller('TaskControler', function($scope, $http, $location) {
         return !task.selected;
       });
       $scope.tasks = filteredTasks;
+      localStorage.setItem('tasks', $scope.tasks)
       $scope.selectAll = false;
       alert('Tareas eliminadas');    } else {
       alert('Eliminación de tareas cancelada');
@@ -76,19 +70,5 @@ app.controller('TaskControler', function($scope, $http, $location) {
      
   };
 
-    $scope.getTasks = function() {
-
-  return $http.get('/task/task')
-    .then(function(response) {
-      try {
-        const item = localStorage.getItem('tasks');
-        return item ? JSON.parse(item) : response.data;
-      } catch (error) {
-        console.error('Error retrieving tasks:', error);
-        // Return an empty array or a default value here
-        return []; // Example: Return an empty array on error
-      }
-    });
-  }  
 });
 

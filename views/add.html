@@ -31,6 +31,15 @@
                         </div>
                       </div>
                       <div class="form-group col-12">
+                        <label class="form-label">Nombre de la Tarea:</label>
+                        <div class="input-group">
+                          <input pInputText type="text" class="form-control" ng-model="task.title" maxlength="50" required>
+                          <span style="color:red" ng-show="form.title.$error.required"></span>
+  
+                        </div>
+                      </div>
+  
+                      <div class="form-group col-12">
                         <label class="form-label">Descripción:</label>
                         <div class="input-group">
                           <input pInputText type="text" class="form-control" ng-model="task.description" maxlength="50" required>

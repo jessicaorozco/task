@@ -16,7 +16,7 @@ app.config(function ($routeProvider, $locationProvider) {
       controller: "AddControler",
     })
     
-    .when("/save/:id", {
+    .when("/task/:id", {
       templateUrl: "views/add.html",
       controller: "AddControler",
     })
