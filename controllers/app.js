@@ -24,6 +24,13 @@ app.config(function ($routeProvider, $locationProvider) {
     .otherwise({ redirectTo: "/chart" });
 
     $locationProvider.hashPrefix('').html5Mode(true);
+
+    // const nav = document.querySelector("nav");
+    // const btnMenu = document.getElementById("navbarNav");
     
+    // btnMenu.addEventListener("click", () => {
+    //   nav.classList.toggle("active");
+    // });
+        
 
 });

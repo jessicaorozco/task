@@ -27,7 +27,7 @@ app.controller("TaskControler", function ($scope, $http, $location) {
   };
 
   $scope.saveTask = function () {
-    $location.path("/save/");
+    $location.path("/save");
   };
 
   $scope.getEventValue = function ($event) {
