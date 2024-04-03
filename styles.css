@@ -13,14 +13,23 @@ textarea{
   text-transform: capitalize;
 }
 .table {
-  width: 100%;
+  width: 800px;
   min-width: 593px;
   table-layout: auto;
 }
+
+card{ width: auto;}
+
 @media (max-width: 768px) {
-  table {
+  .table {
     width: 100%;
-  min-width: 593px;
-  table-layout: fixed;
+    min-width: 320px;
+  }
+}
+
+@media (fullscreen) {
+  .table {
+    width: 90%;
+    min-width: 768px;
   }
 }
