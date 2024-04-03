@@ -28,3 +28,27 @@ card{ max-width: 80vw;}
   card{ max-width: 768px;
     overflow-x: auto;}
 }
+
+@media (max-width: 480px) {
+  .table {
+    max-width: 100vw; /* Set to full viewport width on small screens */
+    overflow-x: auto;
+    table-layout: auto;
+  }
+  .card {
+    max-width: 100vw; /* Set to full viewport width on small screens */
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 320px) {
+  .table {
+    max-width: 100vw; /* Set to full viewport width on small screens */
+    overflow-x: auto;
+    table-layout: auto;
+  }
+  .card {
+    max-width: 100vw; /* Set to full viewport width on small screens */
+    overflow-x: auto;
+  }
+}
