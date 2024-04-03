@@ -12,4 +12,15 @@ input{
 textarea{
   text-transform: capitalize;
 }
-
+.table {
+  width: 100%;
+  min-width: 593px;
+  table-layout: auto;
+}
+@media (max-width: 768px) {
+  table {
+    width: 100%;
+  min-width: 593px;
+  table-layout: fixed;
+  }
+}
