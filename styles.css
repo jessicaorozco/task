@@ -17,7 +17,7 @@ textarea{
   min-width: 593px;
   table-layout: auto;
 }
-card{ max-width: 800px;}
+card{ max-width: 80vw;}
 
 @media (max-width: 768px) {
   .table {
