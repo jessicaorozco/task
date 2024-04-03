@@ -17,19 +17,19 @@ textarea{
   min-width: 593px;
   table-layout: auto;
 }
+card{ max-width: 800px;}
 
-card{ width: auto;}
+@media (max-width: 412px) {
+  .table {
+    max-width: 100vw;
+  }
+  card{ max-width: 100vw;}
+
+}
 
 @media (max-width: 768px) {
   .table {
-    width: 100%;
-    min-width: 320px;
+    max-width: 80vw;
   }
-}
-
-@media (fullscreen) {
-  .table {
-    width: 90%;
-    min-width: 768px;
-  }
+  card{ max-width: 80vw;}
 }
