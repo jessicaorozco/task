@@ -31,24 +31,26 @@ card{ max-width: 80vw;}
 
 @media (max-width: 480px) {
   .table {
-    max-width: 100vw; /* Set to full viewport width on small screens */
+    max-width: 100vw; 
     overflow-x: auto;
     table-layout: auto;
   }
   .card {
-    max-width: 100vw; /* Set to full viewport width on small screens */
+    max-width: 100vw; 
     overflow-x: auto;
   }
 }
 
 @media (max-width: 320px) {
   .table {
-    max-width: 100vw; /* Set to full viewport width on small screens */
+    max-width: 50vw; 
     overflow-x: auto;
     table-layout: auto;
+    font-size: 14px; 
   }
   .card {
-    max-width: 100vw; /* Set to full viewport width on small screens */
+    max-width: 50vw; 
     overflow-x: auto;
+    padding: 10px;
   }
 }
