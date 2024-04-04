@@ -26,9 +26,17 @@ textarea{
 
 
 @media (max-width: 320px) {
+  .table {
+    width: 100%; 
+  }
   .table th,
   .table td {
 
-    overflow-x: auto;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    font-size: 14px;
+    padding: 5px; 
   }
+
 }
