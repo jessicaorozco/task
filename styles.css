@@ -1,10 +1,4 @@
 
-/* #container {
-  width: 800px;
-  height: 400px;
-  margin: 0 auto;
-  border: 1px solid #ccc;
-} */
 
 input{
   text-transform: capitalize;
@@ -12,16 +6,6 @@ input{
 textarea{
   text-transform: capitalize;
 }
-/* .table {
-  width: 100%; 
-}
-.table th,
-.table td {
-
-  white-space: nowrap; 
-  overflow: hidden; 
-  text-overflow: ellipsis; 
-} */
 
 
 
@@ -40,15 +24,11 @@ textarea{
   }
 }
 
-@media (max-width: 400px) {
-  .table {
-    width: 100%; 
-  }
+
+@media (max-width: 320px) {
   .table th,
   .table td {
 
-    white-space: nowrap; 
-    overflow-x: auto; 
-    text-overflow: ellipsis; 
+    overflow-x: auto;
   }
 }
