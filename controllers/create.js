@@ -1,6 +1,8 @@
 app.controller(
   "AddControler",
   function ($scope, $http, $location, $routeParams) {
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('dateLimit').min = today;
     const storedTasks = localStorage.getItem("tasks");
     try {
       $scope.tasks = JSON.parse(storedTasks) || [];
