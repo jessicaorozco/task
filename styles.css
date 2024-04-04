@@ -13,14 +13,29 @@ textarea{
   text-transform: capitalize;
 }
 
-@media (max-width: 768px) {
-  
-  body {
-    flex-wrap: nowrap;
-  }
 
-  div {
-    flex-basis: 33%;
+@media (max-width: 768px) {
+  .table {
+    width: 100%; 
+  }
+  .table th,
+  .table td {
+
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
   }
 }
 
+@media (max-width: 1024px) {
+  .table {
+    width: 80%; 
+  }
+  .table th,
+  .table td {
+
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+  }
+}
