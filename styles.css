@@ -12,45 +12,15 @@ input{
 textarea{
   text-transform: capitalize;
 }
-.table {
-  width: 800px;
-  min-width: 593px;
-  table-layout: auto;
-}
-card{ max-width: 80vw;}
 
 @media (max-width: 768px) {
-  .table {
-    max-width: 768px;
-    overflow-x: auto;
-    table-layout: auto;
+  
+  body {
+    flex-wrap: nowrap;
   }
-  card{ max-width: 768px;
-    overflow-x: auto;}
-}
 
-@media (max-width: 480px) {
-  .table {
-    max-width: 100vw; 
-    overflow-x: auto;
-    table-layout: auto;
-  }
-  .card {
-    max-width: 100vw; 
-    overflow-x: auto;
+  div {
+    flex-basis: 33%;
   }
 }
 
-@media (max-width: 320px) {
-  .table {
-    max-width: 50vw; 
-    overflow-x: auto;
-    table-layout: auto;
-    font-size: 14px; 
-  }
-  .card {
-    max-width: 50vw; 
-    overflow-x: auto;
-    padding: 10px;
-  }
-}
