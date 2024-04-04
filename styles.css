@@ -12,7 +12,7 @@ input{
 textarea{
   text-transform: capitalize;
 }
-.table {
+/* .table {
   width: 100%; 
 }
 .table th,
@@ -21,7 +21,7 @@ textarea{
   white-space: nowrap; 
   overflow: hidden; 
   text-overflow: ellipsis; 
-}
+} */
 
 
 
@@ -34,16 +34,21 @@ textarea{
 
     white-space: nowrap; 
     overflow: hidden; 
-    text-overflow: ellipsis; 
+    text-overflow: ellipsis;
+    font-size: 14px;
+    padding: 5px; 
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 400px) {
+  .table {
+    width: 100%; 
+  }
   .table th,
   .table td {
-      font-size: 12px;
-  }
-  .table {
+
+    white-space: nowrap; 
     overflow-x: auto; 
-}
+    text-overflow: ellipsis; 
+  }
 }
