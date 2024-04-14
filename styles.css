@@ -6,7 +6,16 @@ input{
 textarea{
   text-transform: capitalize;
 }
+form{
+  padding: 15px;
+}
 
+#qrcode {
+  width:160px;
+  height:160px;
+  margin-top:15px;
+  padding: 15px;
+}
 
 
 @media (max-width: 768px) {

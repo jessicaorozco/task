@@ -21,11 +21,14 @@ app.config(function ($routeProvider, $locationProvider) {
       controller: "AddControler",
     })
 
+    .when("/qr", {
+      templateUrl: "views/qr.html",
+      controller: "QrController",
+    })
+
     .otherwise({ redirectTo: "/chart" });
 
     $locationProvider.hashPrefix('').html5Mode(true);
 
-    
-        
 
 });
