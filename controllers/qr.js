@@ -1,14 +1,9 @@
 app.controller("QrController", function ($scope, $location, qrService) {
   var qrcode = new QRCode("qrcode");
   var elText = document.getElementById("text");
+  $scope.inputValue = '';
 
     function makeCode() {
-    if (!elText.value) {
-      alert("Por favor ingrese una url");
-      elText.focus();
-      return;
-    }
-
     qrcode.makeCode(elText.value);
   }
 
@@ -24,6 +19,35 @@ app.controller("QrController", function ($scope, $location, qrService) {
       }
     });
 
+    PayPal.Donation.Button({
+      env: 'production',
+      business: 'jessicaorozco@gmail.com',
+      
+      image: {
+          src: 'https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif',
+          title: 'PayPal - The safer, easier way to pay online!',
+          alt: 'Donate with PayPal button'
+      },
+      onComplete: function (params) {
+        $location.path("/donate");
+      },
+  }).render('#paypal-button-container');
+
+    // $scope.generatePdf = function () {
+    //   var dataURL = qrcode.toDataURL('image/png');
+    //   var doc = new jsPDF();
+    //   doc.addImage(qrcode, 'PNG', 10, 10);
+    //   var pdfBlob = new Blob([doc.output('blob')], { type: 'application/pdf' });
+    //   saveAs(pdfBlob, 'my-qr-code')
+    //   let blob = new Blob([qrcode.makeCode(elText.value)], {type: 'application/pdf'});
+    //   const fileURL = URL.createObjectURL(blob);
+    //    window.open(fileURL);
+    // };
+    $scope.clearInput = function() {
+      $scope.inputValue = ''; // Clear the input value
+      $('.clear-icon').hide(); // Hide the "X" icon
+    };
+
   $scope.resetForm = function () {
     resetObjectProperties($scope.qr, ["url"]);
   };
@@ -33,26 +57,14 @@ app.controller("QrController", function ($scope, $location, qrService) {
   }
 
   $scope.returnToList = function () {
-    $location.path("/task");
+    $location.path("/chart");
   };
 
-  $scope.generatePdf = function () {
-        var doc = new jsPDF();
-    var elementHTML = $('#qrcode').html();
-    var specialElementHandlers = {
-        '#elementH': function (element, renderer) {
-            return true;
-        }
-    };
-    doc.fromHTML(elementHTML, 15, 15, {
-        'width': 170,
-        'elementHandlers': specialElementHandlers
-    });
-    doc.addImage(20, 20, elementHTML, 50, 50, elText.value)
-    // doc.text(20, 20, "Qr de:" +  document.getElementById("text"));
-    doc.addPage();
-    doc.save("qr-download.pdf");
+  $scope.pay = function () {
+    $location.path("https://www.paypal.com/donate/?hosted_button_id=LFDKPAPWX4NW2");
   };
+  
   console.log(localStorage.getItem("qrs"));
   console.log($scope.qrs);
 });
+

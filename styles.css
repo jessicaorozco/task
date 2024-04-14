@@ -31,6 +31,15 @@ form{
     font-size: 14px;
     padding: 5px; 
   }
+  .form-control
+  {
+    width: 100%;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    font-size: 14px;
+    padding: 5px; 
+  }
 }
 
 
@@ -39,6 +48,15 @@ form{
   .table th,
   .table td {
 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    font-size: 14px;
+    padding: 5px; 
+  }
+  .form-control
+  {
+    width: 100%;
     white-space: nowrap; 
     overflow: hidden; 
     text-overflow: ellipsis;
