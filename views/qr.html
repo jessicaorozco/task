@@ -1,0 +1,59 @@
+<div class="d-flex w-100 h-100" ng-controller="AddControler">
+    <div class="w-100 h-100 p-5">
+      <div class="card-body flex justify-content-center">
+              <div class="row">
+            <div class="col-md-6">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="card">
+                    <div class="card flex justify-content-center">
+                      <div class="container formCRUD" >
+                        <h4 class="headerTitle">Generador de Qr </h4>
+                        <hr class="hrTitle">
+                      </div>
+                      <div class="d-flex justify-content-between">
+                        <button ng-click="returnToList()" title="Regresar al inicio"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+                          <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5"/>
+                        </svg></button>
+                        <button ng-click="generatorQr()" ng-disabled="buttonDisabled" title="Genrar Qr"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-qr-code" viewBox="0 0 16 16">
+                            <path d="M2 2h2v2H2z"/>
+                            <path d="M6 0v6H0V0zM5 1H1v4h4zM4 12H2v2h2z"/>
+                            <path d="M6 10v6H0v-6zm-5 1v4h4v-4zm11-9h2v2h-2z"/>
+                            <path d="M10 0v6h6V0zm5 1v4h-4V1zM8 1V0h1v2H8v2H7V1zm0 5V4h1v2zM6 8V7h1V6h1v2h1V7h5v1h-4v1H7V8zm0 0v1H2V8H1v1H0V7h3v1zm10 1h-1V7h1zm-1 0h-1v2h2v-1h-1zm-4 0h2v1h-1v1h-1zm2 3v-1h-1v1h-1v1H9v1h3v-2zm0 0h3v1h-2v1h-1zm-4-1v1h1v-2H7v1z"/>
+                            <path d="M7 12h1v3h4v1H7zm9 2v2h-3v-1h2v-1z"/>
+                          </svg></button>
+                        
+                      </div>
+                    
+                    <div  class="card-body justify-content-center">
+                      <form class="form-group" [formGroup]="qrForm" name="qrForm" >
+
+                        <div class="form-group col-12">
+                          <label class="form-label">Url:</label>
+                          <div class="input-group">
+                            <input pInputText id="text" type="text" class="form-control" value="https://cvjess.000webhostapp.com/" ng-model="qr.url" maxlength="50" placeholder="Coloca tu url aqui" required>
+                            <span style="color:red" ng-show="qrForm.url.$error.required"></span>
+    
+                          </div>
+                        </div>
+                        <div class="form-group col-12 d-flex justify-content-center">
+                          <div id="qrcode"></div>
+                        </div>
+       
+                        <div class="form-group col-12 d-flex justify-content-center">
+                          <button class="btn btn-primary" ng-click="returnToList()">
+                            Cancel
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  
