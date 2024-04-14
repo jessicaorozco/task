@@ -30,6 +30,10 @@ app.config(function ($routeProvider, $locationProvider) {
       templateUrl: "views/donates.html",
       controller: "DonateController",
     })
+    .when("/frame", {
+      templateUrl: "views/frame.html",
+      controller: "DonateController",
+    })
     
     .otherwise({ redirectTo: "/chart" });
 
