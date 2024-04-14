@@ -1,8 +1,8 @@
-app.controller("QrController", function ($scope, $location) {
+app.controller("QrController", function ($scope, $location, qrService) {
   var qrcode = new QRCode("qrcode");
-  function makeCode() {
-    var elText = document.getElementById("text");
+  var elText = document.getElementById("text");
 
+    function makeCode() {
     if (!elText.value) {
       alert("Por favor ingrese una url");
       elText.focus();
@@ -37,14 +37,21 @@ app.controller("QrController", function ($scope, $location) {
   };
 
   $scope.generatePdf = function () {
-    var doc = new jsPDF();
-    doc.html(document.body, {
-      callback: function (doc) {
-        doc.addPage();
-        doc.save("qr-download.pdf");
-      }
-   });
-    
+        var doc = new jsPDF();
+    var elementHTML = $('#qrcode').html();
+    var specialElementHandlers = {
+        '#elementH': function (element, renderer) {
+            return true;
+        }
+    };
+    doc.fromHTML(elementHTML, 15, 15, {
+        'width': 170,
+        'elementHandlers': specialElementHandlers
+    });
+    doc.addImage(20, 20, elementHTML, 50, 50, elText.value)
+    // doc.text(20, 20, "Qr de:" +  document.getElementById("text"));
+    doc.addPage();
+    doc.save("qr-download.pdf");
   };
   console.log(localStorage.getItem("qrs"));
   console.log($scope.qrs);
