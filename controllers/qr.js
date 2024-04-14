@@ -3,12 +3,7 @@ app.controller("QrController", function ($scope, $location, qrService) {
   var elText = document.getElementById("text");
 
     function makeCode() {
-    if (!elText.value) {
-      alert("Por favor ingrese una url");
-      elText.focus();
-      return;
-    }
-
+    elText.focus();
     qrcode.makeCode(elText.value);
   }
 
