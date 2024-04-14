@@ -30,6 +30,5 @@ app.config(function ($routeProvider, $locationProvider) {
 
     $locationProvider.hashPrefix('').html5Mode(true);
 
-        
 
 });
