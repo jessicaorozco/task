@@ -8,10 +8,12 @@ textarea{
 }
 form {
   padding: 15px;
-  display: flex; /* Make the form a flexbox */
-  flex-wrap: wrap; /* Allow child elements to wrap */
+  display: flex;
+  flex-wrap: wrap; 
 }
-
+ul{
+  text-decoration: none;
+}
 .form-control
   {
     width: 100%;
@@ -22,13 +24,27 @@ form {
     padding: 5px; 
   }
   #qrcode {
-    /* Use a percentage for width and remove fixed padding */
     width: 80%;
     margin-top: 15px;
   }
   
   .form-group.col-12.d-flex.justify-content-center.align-items-center {
   padding: 20px; 
+}
+
+
+button[type="button"] {
+  background-color: #dc3545;
+  color: white; 
+  border: none; 
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer; 
+}
+
+
+button[type="button"]:hover {
+  background-color: #c82333;
 }
 
 @media (max-width: 768px) {
@@ -44,11 +60,12 @@ form {
     font-size: 14px;
     padding: 5px; 
   }
+  
   form {
     width: 100%;
     padding: 15px;
-    display: flex; /* Make the form a flexbox */
-    flex-wrap: wrap; /* Allow child elements to wrap */
+    display: flex;
+    flex-wrap: wrap; 
   }
 }
 
@@ -66,8 +83,8 @@ form {
   }
   form {
     padding: 15px;
-    display: flex; /* Make the form a flexbox */
-    flex-wrap: wrap; /* Allow child elements to wrap */
+    display: flex;
+    flex-wrap: wrap;
   }
 
 }
