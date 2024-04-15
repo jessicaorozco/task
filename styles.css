@@ -85,6 +85,10 @@ button[type="button"]:hover {
     display: flex;
     flex-wrap: wrap; 
   }
+  #qrcode {
+    width: 80%;
+    margin-top: 15px;
+  }
 }
 
 
@@ -104,5 +108,8 @@ button[type="button"]:hover {
     display: flex;
     flex-wrap: wrap;
   }
-
+  #qrcode {
+    width: 80%;
+    margin-top: 15px;
+  }
 }
