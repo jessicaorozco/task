@@ -10,13 +10,24 @@ form{
   padding: 15px;
 }
 
-#qrcode {
-  width:160px;
-  height:160px;
-  margin-top:15px;
-  padding: 15px;
+.form-control
+  {
+    width: 100%;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    font-size: 14px;
+    padding: 5px; 
+  }
+  #qrcode {
+    /* Use a percentage for width and remove fixed padding */
+    width: 80%;
+    margin-top: 15px;
+  }
+  
+  .form-group.col-12.d-flex.justify-content-center.align-items-center {
+  padding: 20px; 
 }
-
 
 @media (max-width: 768px) {
   .table {
@@ -60,7 +71,7 @@ form{
     white-space: nowrap; 
     overflow: hidden; 
     text-overflow: ellipsis;
-    font-size: 14px;
+    font-size: 12px;
     padding: 5px; 
   }
 
