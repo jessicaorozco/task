@@ -8,8 +8,8 @@ textarea{
 }
 form {
   padding: 15px;
-  display: flex; /* Make the form a flexbox */
-  flex-wrap: wrap; /* Allow child elements to wrap */
+  display: flex;
+  flex-wrap: wrap; 
 }
 
 .form-control
@@ -22,13 +22,47 @@ form {
     padding: 5px; 
   }
   #qrcode {
-    /* Use a percentage for width and remove fixed padding */
     width: 80%;
     margin-top: 15px;
   }
+  ul {
+    list-style-type: none; /* Remove default bullets */
+    padding: 0; /* Remove default padding */
+  }
   
+  li {
+    position: relative; 
+    padding-left: 20px; 
+    text-indent: -20px; 
+  }
+  
+  li::before {
+    content: "•"; 
+    position: absolute; 
+    left: 10px; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    font-size: 14px; 
+    color: #333; 
+  }
+
   .form-group.col-12.d-flex.justify-content-center.align-items-center {
   padding: 20px; 
+}
+
+
+button[type="button"] {
+  background-color: #dc3545;
+  color: white; 
+  border: none; 
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer; 
+}
+
+
+button[type="button"]:hover {
+  background-color: #c82333;
 }
 
 @media (max-width: 768px) {
@@ -44,11 +78,12 @@ form {
     font-size: 14px;
     padding: 5px; 
   }
+  
   form {
     width: 100%;
     padding: 15px;
-    display: flex; /* Make the form a flexbox */
-    flex-wrap: wrap; /* Allow child elements to wrap */
+    display: flex;
+    flex-wrap: wrap; 
   }
 }
 
@@ -66,8 +101,8 @@ form {
   }
   form {
     padding: 15px;
-    display: flex; /* Make the form a flexbox */
-    flex-wrap: wrap; /* Allow child elements to wrap */
+    display: flex;
+    flex-wrap: wrap;
   }
 
 }
