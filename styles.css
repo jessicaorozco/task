@@ -6,8 +6,10 @@ input{
 textarea{
   text-transform: capitalize;
 }
-form{
+form {
   padding: 15px;
+  display: flex; /* Make the form a flexbox */
+  flex-wrap: wrap; /* Allow child elements to wrap */
 }
 
 .form-control
@@ -42,14 +44,11 @@ form{
     font-size: 14px;
     padding: 5px; 
   }
-  .form-control
-  {
+  form {
     width: 100%;
-    white-space: nowrap; 
-    overflow: hidden; 
-    text-overflow: ellipsis;
-    font-size: 14px;
-    padding: 5px; 
+    padding: 15px;
+    display: flex; /* Make the form a flexbox */
+    flex-wrap: wrap; /* Allow child elements to wrap */
   }
 }
 
@@ -65,14 +64,10 @@ form{
     font-size: 14px;
     padding: 5px; 
   }
-  .form-control
-  {
-    width: 100%;
-    white-space: nowrap; 
-    overflow: hidden; 
-    text-overflow: ellipsis;
-    font-size: 12px;
-    padding: 5px; 
+  form {
+    padding: 15px;
+    display: flex; /* Make the form a flexbox */
+    flex-wrap: wrap; /* Allow child elements to wrap */
   }
 
 }
