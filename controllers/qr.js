@@ -64,7 +64,6 @@ app.controller("QrController", function ($scope, $location, qrService) {
     $location.path("https://www.paypal.com/donate/?hosted_button_id=LFDKPAPWX4NW2");
   };
   
-  console.log(localStorage.getItem("qrs"));
-  console.log($scope.qrs);
+  
 });
 
