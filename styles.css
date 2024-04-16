@@ -6,7 +6,7 @@ input{
 textarea{
   text-transform: capitalize;
 }
-form {
+/*form {
   padding: 15px;
   display: flex;
   flex-wrap: wrap; 
@@ -20,11 +20,18 @@ form {
     text-overflow: ellipsis;
     font-size: 14px;
     padding: 5px; 
+  }*/
+  .form-group {
+    display: flex;
+    flex-direction: column; /* Arrange form elements vertically */
+    align-items: center; /* Center elements horizontally */
   }
-  #qrcode {
-    width: 80%;
-    margin-top: 15px;
+  
+  .form-control {
+    width: 100%; /* Make form controls full width */
+    margin-bottom: 15px; /* Add spacing between controls */
   }
+    
   ul {
     list-style-type: none; /* Remove default bullets */
     padding: 0; /* Remove default padding */
@@ -51,19 +58,6 @@ form {
 }
 
 
-button[type="button"] {
-  background-color: #dc3545;
-  color: white; 
-  border: none; 
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer; 
-}
-
-
-button[type="button"]:hover {
-  background-color: #c82333;
-}
 
 @media (max-width: 768px) {
   .table {
@@ -112,4 +106,9 @@ button[type="button"]:hover {
     width: 80%;
     margin-top: 15px;
   }
+  .form-group {
+    flex-direction: column; /* Keep vertical layout for small screens */
+  }
+
+ 
 }
