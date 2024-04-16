@@ -6,13 +6,14 @@ input{
 textarea{
   text-transform: capitalize;
 }
-/*form {
+ form {
   padding: 15px;
+  min-width: 437px;
   display: flex;
   flex-wrap: wrap; 
 }
 
-.form-control
+/*.form-control
   {
     width: 100%;
     white-space: nowrap; 
@@ -74,13 +75,17 @@ textarea{
   }
   
   form {
-    width: 100%;
+    /* width: 100%; */
     padding: 15px;
     display: flex;
+    min-width: 437px;
     flex-wrap: wrap; 
   }
   form-group,
   #qrcode {
+    white-space: nowrap; 
+    overflow: hidden;
+    /* width: 60%; */
     margin-top: 15px;
   }
   
@@ -105,6 +110,9 @@ textarea{
   }
   form-group,
   #qrcode {
+    white-space: nowrap; 
+    overflow: hidden;
+    /* width: 60%; */
     margin-top: 15px; }
 
  
