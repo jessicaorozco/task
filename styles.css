@@ -79,45 +79,11 @@ textarea{
     display: flex;
     flex-wrap: wrap; 
   }
+  form-group,
   #qrcode {
-    margin-top: 15px;
-  }
-  .form-group {
-    display: flex;
-    flex-direction: column; /* Arrange form elements vertically */
-    align-items: center; /* Center elements horizontally */
+    margin-top: 15px; /* Add spacing between elements */
   }
   
-  .form-control {
-    width: 100%; /* Make form controls full width */
-    margin-bottom: 15px; /* Add spacing between controls */
-  }
-    
-  ul {
-    list-style-type: none; /* Remove default bullets */
-    padding: 0; /* Remove default padding */
-  }
-  
-  li {
-    position: relative; 
-    padding-left: 20px; 
-    text-indent: -20px; 
-  }
-  
-  li::before {
-    content: "•"; 
-    position: absolute; 
-    left: 10px; 
-    top: 50%; 
-    transform: translateY(-50%); 
-    font-size: 14px; 
-    color: #333; 
-  }
-
-  .form-group.col-12.d-flex.justify-content-center.align-items-center {
-  padding: 20px; 
-}
-
 }
 
 
@@ -137,44 +103,10 @@ textarea{
     display: flex;
     flex-wrap: wrap;
   }
+  form-group,
   #qrcode {
-    margin-top: 15px;
+    margin-top: 15px; /* Add spacing between elements */
   }
-  .form-group {
-    display: flex;
-    flex-direction: column; /* Arrange form elements vertically */
-    align-items: center; /* Center elements horizontally */
-  }
-  
-  .form-control {
-    width: 100%; /* Make form controls full width */
-    margin-bottom: 15px; /* Add spacing between controls */
-  }
-    
-  ul {
-    list-style-type: none; /* Remove default bullets */
-    padding: 0; /* Remove default padding */
-  }
-  
-  li {
-    position: relative; 
-    padding-left: 20px; 
-    text-indent: -20px; 
-  }
-  
-  li::before {
-    content: "•"; 
-    position: absolute; 
-    left: 10px; 
-    top: 50%; 
-    transform: translateY(-50%); 
-    font-size: 14px; 
-    color: #333; 
-  }
-
-  .form-group.col-12.d-flex.justify-content-center.align-items-center {
-  padding: 20px; 
-}
 
  
 }
