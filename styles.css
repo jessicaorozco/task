@@ -81,7 +81,7 @@ textarea{
     min-width: 437px;
     flex-wrap: wrap; 
   }
-  form-group,
+  .form-control,
   #qrcode {
     white-space: nowrap; 
     overflow: hidden;
@@ -108,7 +108,7 @@ textarea{
     display: flex;
     flex-wrap: wrap;
   }
-  form-group,
+  .form-control,
   #qrcode {
     white-space: nowrap; 
     overflow: hidden;
