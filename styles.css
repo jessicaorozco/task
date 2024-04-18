@@ -107,17 +107,18 @@ textarea{
     padding: 15px;
     display: flex;
     flex-wrap: wrap;
-    border: none;
+    
   }
   .form-control,
   #qrcode {
-    border: none;
     white-space: nowrap; 
     overflow: hidden; 
     flex-wrap: wrap;
     text-overflow: ellipsis;
     font-size: 14px;
     padding: 5px;}
-
+    .card-body{
+      border:none
+    }
  
 }
