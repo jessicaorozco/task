@@ -34,6 +34,10 @@ app.config(function ($routeProvider, $locationProvider) {
       templateUrl: "views/frame.html",
       controller: "DonateController",
     })
+    .when("/resize", {
+      templateUrl: "views/resize.html",
+      controller: "ResizeController",
+    })
     
     .otherwise({ redirectTo: "/chart" });
 
@@ -58,4 +62,5 @@ app.directive('clearInput', function() {
       });
     }
   }});
+  
   

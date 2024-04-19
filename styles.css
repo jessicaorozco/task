@@ -107,6 +107,7 @@ textarea{
     padding: 15px;
     display: flex;
     flex-wrap: wrap;
+    
   }
   .form-control,
   #qrcode {
@@ -116,6 +117,8 @@ textarea{
     text-overflow: ellipsis;
     font-size: 14px;
     padding: 5px;}
-
+    .card-body{
+      border:none
+    }
  
 }

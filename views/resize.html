@@ -1,0 +1,78 @@
+<div class="d-flex w-100 h-100 " ng-controller="AddControler">
+    <div class="w-100 h-100 p-5 justify-content-center align-items-center">
+      <div class="card-body flex justify-content-center">
+              <div class="row">
+            <div class="col-md-12">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="card">
+                    <div class="card flex justify-content-center align-items-center">
+                      <div class="container formCRUD" >
+                        <h4 class="headerTitle">Redimensionar videos </h4>
+                        <hr class="hrTitle">
+                      </div>
+                      <div class="card">
+                        <div class="card-body">
+                          <form>
+                            <div class="row justify-content-center">
+                              <div class="col-md-12">
+                                <div class="form-group d-flex justify-content-center align-items-center">
+                                  <div class="col-md-6">
+                                    <label for="videoInput">Seleccionar Video</label>
+                                    <input type="file" id="videoInput" ng-model="videoFile" class="form-control-file" required>
+                                  </div>
+                                  <div class="col-md-6 d-flex justify-content-end">
+                                    <button ng-click="resizeVideo()" class="btn btn-primary">Redimensionar Video</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-12">
+                                <canvas id="outputCanvas"></canvas>
+                              </div>
+                            </div>
+                            <div class="row justify-content-center">
+                   
+                                <div class="form-group text-center">
+                                  <button class="btn btn-info" id="paypal-button-container">
+                                    </button>
+                                </div>
+                        
+                            </div>
+                            <div class="row">
+                              <div class="col-12">
+                                <div class="progress">
+                                  <div class="progress-bar" id="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                      
+                
+                  </div>
+                 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
