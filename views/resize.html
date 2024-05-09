@@ -17,13 +17,25 @@
                             <div class="row justify-content-center">
                               <div class="col-md-12">
                                 <div class="form-group d-flex justify-content-center align-items-center">
-                                  <div class="col-md-6">
-                                    <label for="videoInput">Seleccionar Video</label>
-                                    <input type="file" id="videoInput" ng-model="videoFile" class="form-control-file" required>
-                                  </div>
-                                  <div class="col-md-6 d-flex justify-content-end">
+                                    <div class="form-group">
+                                        <label for="videoInput">Seleccionar Video:</label>
+                                        <input type="file" id="videoInput" ng-model="videoFile" class="form-control-file" required>
+
+                                      </div>
+                                      <div class="progress">
+                                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                      </div>
+                                  
+                                      <button class="btn btn-primary" ng-click="resizeVideo()">Resize Video</button>
+                                  
+                                      <a href="{{resizedVideoUrl}}" class="btn btn-success" download="resized-video.mp4">Download Resized Video</a>
+                                  
+                                      <div class="alert alert-success" ng-if="resizedVideoUrl">
+                                        <strong>Success!</strong> Your video has been resized and is ready for download.
+                                      </div>
+                                                                        <!-- <div class="col-md-6 d-flex justify-content-end">
                                     <button ng-click="resizeVideo()" class="btn btn-primary">Redimensionar Video</button>
-                                  </div>
+                                  </div> -->
                                 </div>
                               </div>
                             </div>
