@@ -57,7 +57,7 @@ app.controller("QrController", function ($scope, $location, qrService) {
   }
 
   $scope.returnToList = function () {
-    $location.path("/chart");
+    $location.path("/task");
   };
 
   $scope.pay = function () {

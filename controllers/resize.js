@@ -1,4 +1,4 @@
-app.controller("ResizeController", function ($scope, $location) {
+app.controller("ResizeController", function ($scope, $location, $http, $timeout, FileUploader) {
     console.log('estoy en resize')
     PayPal.Donation.Button({
         env: 'production',
@@ -14,61 +14,30 @@ app.controller("ResizeController", function ($scope, $location) {
         },
     }).render('#paypal-button-container');
 
+    $scope.videoFile = null;
+    $scope.resizedVideoUrl = null;
+    $scope.progress = 0;
+
+    var uploader = new FileUploader({
+      url: '/resize-video',
+      headers: {
+        'Content-Type': undefined
+      }
+    });
+
+    uploader.onProgress = function(file, progress) {
+      $scope.progress = progress;
+    };
+
+    uploader.onSuccess = function(file, response, status, headers) {
+      $scope.progress = 100;
+      $scope.resizedVideoUrl = response.resizedVideoUrl;
+    };
+
     $scope.resizeVideo = function() {
-         
-        if ($scope.videoFile) {
-          var reader = new FileReader();
-          var progressElement = document.getElementById('progress-bar'); 
-  
-          reader.onprogress = function(event) {
-            if (event.lengthComputable) {
-              var progress = (event.loaded / event.total) * 100;
-              progressElement.value = progress; 
-            }
-          };
-          
-  
-          reader.onload = function(e) {
-            var video = document.createElement('video');
-            video.onloadedmetadata = function() {
- 
-              var isPortrait = video.videoHeight > video.videoWidth;
-              var width = isPortrait ? video.videoWidth * 0.75 : video.videoWidth; 
-              var height = isPortrait ? video.videoHeight * 0.75 : video.videoHeight;
-  
-      
-              var scaleX = 1080 / width;
-              var scaleY = 1920 / height;
-              var scale = Math.min(scaleX, scaleY);
-  
-             
-              var canvas = document.getElementById('outputCanvas');
-              canvas.width = 1080; 
-              canvas.height = 1920; 
-              var ctx = canvas.getContext('2d');
-  
-        
-              ctx.drawImage(video, 0, 0, width * scale, height * scale, 0, 0, 1080, 1920);
-  
-             
-              var mimeType = 'video/mp4'; 
-              var dataURL = canvas.toDataURL(mimeType);
-              var blob = new Blob([dataURL], { type: mimeType });
-  
-            
-              var link = document.createElement('a');
-              link.href = window.URL.createObjectURL(blob);
-              link.download = 'resized_video.mp4'; 
-  
-            
-              link.click();
-  
-       
-              window.URL.revokeObjectURL(link.href);
-            };
-            video.src = e.target.result;
-          };
-          reader.readAsDataURL($scope.videoFile);
-        }
-      };
+      if ($scope.videoFile) {
+        uploader.addFile($scope.videoFile);
+        uploader.startUpload();
+      }
+    };
 });
